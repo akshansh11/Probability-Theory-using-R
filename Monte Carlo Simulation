@@ -1,0 +1,26 @@
+> #MONTE CARLO SIMULATIONS
+> 
+> #Random number generator allows us to mimic the process of picking a thing at random/
+> 
+> #In below code 'rep' function is used to generate the urn.
+> beads<-rep(c("red", "blue"), times=c(2,3))
+> beads
+[1] "red"  "red"  "blue" "blue" "blue"
+> sample(beads,1)
+[1] "blue"
+> #The above code produces one random outcome.
+> 
+> #We want to repeat this experiment over and over, but its impossible to repeat it forever.
+> 
+> #To perform monte carlo simulation we will use 'replicate ()' function. This enables the task to be repeated any number of times we want. 
+> B<-10000
+> events<-replicate(B,sample(beads,1))
+> tab<-table(events)
+> tab
+events
+blue  red 
+5998 4002 
+> prop.table(tab)
+events
+  blue    red 
+0.5998 0.4002 
